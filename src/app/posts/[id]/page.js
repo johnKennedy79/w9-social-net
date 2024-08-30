@@ -14,8 +14,8 @@ export default async function AddComment({ params }) {
         profiles.username AS username 
       FROM
         rcposts
-      LEFT JOIN
-        profiles ON rcposts.profile_id = profiles.id WHERE rcposts.id = $1`,
+      RIGHT JOIN
+        profiles ON rcposts.clerk_id = profiles.clerk_id WHERE rcposts.id = $1`,
       [id]
     );
     return postResult.rows[0];
@@ -29,8 +29,8 @@ export default async function AddComment({ params }) {
         profiles.username AS username
       FROM 
         rccomments
-      LEFT JOIN
-        profiles ON rccomments.profile_id = profiles.id
+      RIGHT JOIN
+        profiles ON rccomments.clerk_id = profiles.clerk_id
       WHERE
         rccomments.rcposts_id = $1
         `,

@@ -18,8 +18,8 @@ export default async function Posts({ searchParams }) {
         profiles.username AS username 
       FROM
         rcposts
-      LEFT JOIN
-        profiles ON rcposts.profile_id = profiles.id
+      RIGHT JOIN
+        profiles ON rcposts.clerk_id = profiles.clerk_id
       ORDER BY rcposts.timestamp ${sort}
     `);
 

@@ -2,25 +2,32 @@
 
 🐿️ As a user, I am able to sign up for an account and create a user profile
 
-I acheaved the sign in using clerk and made my own sign in or sign up pages
-once loged in I am then directed to my profile page or to a form to create a profile if one does not already exist
+### I acheaved the sign in using clerk and made my own sign in or sign up pages
+
+### once loged in I am then directed to my profile page or to a form to create a profile if one does not already exist
 
 🐿️ As a user, I am able to log in and out of my account
-my user clerk button is in the top right of my header and If I log out I'm directed back to the layout page
+
+### my user clerk button is in the top right of my header and If I log out I'm directed back to the layout page
 
 🐿️ As a user, I am able to create posts on my profile timeline
 
 🐿️ As a user, I am able to see all posts by all users on a global timeline
 created a global time line page displaying all posts in date order ascending or decending using serch perams
 
+### created global post page
+
 🎯 Use Clerk.com to set up user signup and login.
-I used clerk for the sign up and sign in pages
+
+### I used clerk for the sign up and sign in pages
 
 🎯 Use the Clerk userId to associate posts with a user.
-I lernt how to get user information from clerk to add to new posts and to link existing posts with a user id
+
+### I lernt how to get user information from clerk to add to new posts and to link existing posts with a user id
 
 🎯 Enable each user to create a profile associated with their userId, and a form to input their biography and location data, etc. with a URL similar to /user/[userId].
-I created a form for each user to add their own profile bio linked to their user id
+
+### I created a form for each user to add their own profile bio linked to their user id
 
 🎯 Enable users to create posts associated with the userId, and display those posts on the user's profile page
 

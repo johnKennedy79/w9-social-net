@@ -30,8 +30,10 @@ export default function RootLayout({ children }) {
               <UserButton className="border-double border-[#cd950c] border-8 outline-8 h-20 w-32 bg-[#002349] text-[#cd950c] text-2xl" />
             </SignedIn>
           </header>
-
-          {children}
+          <SignedOut>
+            <div>You&apos;re Not Worthy</div>
+          </SignedOut>
+          <SignedIn>{children}</SignedIn>
         </body>
       </html>
     </ClerkProvider>

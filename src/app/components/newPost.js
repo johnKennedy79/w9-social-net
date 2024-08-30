@@ -1,6 +1,7 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
+import ProfileForm from "./profileForm";
 export default async function NewPost() {
   const user = await currentUser();
   if (!user) {
@@ -10,20 +11,20 @@ export default async function NewPost() {
     user.id,
   ]);
   if (result.rowCount === 0) {
-    return <p>error</p>;
+    return <ProfileForm />;
   }
-  const profile = result.rows[0];
+  const profileData = result.rows[0];
   async function createPost(formData) {
     "use server";
-    const profile_id = formData.get("profile_id");
+    const clerk_id = formData.get("clerk_id");
     const timestamp = formData.get("timestamp");
     const post = formData.get("post");
 
     await db.query(
       `
-    INSERT INTO rcposts (profile_id, timestamp, post) 
+    INSERT INTO rcposts (clerk_id, timestamp, post) 
     VALUES ($1, $2, $3)`,
-      [profile_id, timestamp, post]
+      [clerk_id, timestamp, post]
     );
     revalidatePath(`/posts`);
   }
@@ -34,7 +35,7 @@ export default async function NewPost() {
         action={createPost}
         className="flex items-center justify-between w-screen"
       >
-        <input type="hidden" name="profile_id" value={profile.id} />
+        <input type="hidden" name="clerk_id" value={profileData.clerk_id} />
         <input type="hidden" name="timestamp" value="Now()" />
         <label>What do you want to say?</label>
         <textarea
