@@ -3,7 +3,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import ProfileForm from "./profileForm";
-
+import { SignedIn } from "@clerk/nextjs";
 export default async function NewComment({ rcposts_id }) {
   const user = await currentUser();
   if (!user) {
@@ -33,21 +33,23 @@ export default async function NewComment({ rcposts_id }) {
     redirect(`/posts/${rcposts_id}`);
   }
   return (
-    <div className="mt-10">
-      <form action={addCommentAction} className="p-4">
-        <textarea
-          name="comment"
-          placeholder="Add your comment"
-          className="w-full h-20 p-2 border"
-          required
-        />
-        <input type="hidden" name="rcposts_id" value={rcposts_id} />
-        <input type="hidden" name="clerk_id" value={profileData.clerk_id} />
-        <input type="hidden" name="timestamp" value="now()" />
-        <button className="w-30 border-double mt-4 border-[#cd950c] border-4 p-2 outline-4 bg-[#002349] text-[#8b6508]">
-          Add Comment
-        </button>
-      </form>
-    </div>
+    <SignedIn>
+      <div className="mt-10">
+        <form action={addCommentAction} className="p-4">
+          <textarea
+            name="comment"
+            placeholder="Add your comment"
+            className="w-full h-20 p-2 border"
+            required
+          />
+          <input type="hidden" name="rcposts_id" value={rcposts_id} />
+          <input type="hidden" name="clerk_id" value={profileData.clerk_id} />
+          <input type="hidden" name="timestamp" value="now()" />
+          <button className="w-30 border-double mt-4 border-[#cd950c] border-4 p-2 outline-4 bg-[#002349] text-[#8b6508]">
+            Add Comment
+          </button>
+        </form>
+      </div>
+    </SignedIn>
   );
 }

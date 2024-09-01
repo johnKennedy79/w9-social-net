@@ -30,19 +30,19 @@ export default async function NewPost() {
   }
 
   return (
-    <div className="border-double border-[#cd950c] h-3/5 w-screen border-8 outline-8 flex items-center">
+    <div className="border-double border-[#cd950c] h-fit w-11/12 border-8 outline-8 flex items-center ml-4 mr-4 p-2">
       <form
         action={createPost}
-        className="flex items-center justify-between w-screen"
+        className="flex items-center w-screen justify-between"
       >
         <input type="hidden" name="clerk_id" value={profileData.clerk_id} />
         <input type="hidden" name="timestamp" value="Now()" />
-        <label>What do you want to say?</label>
+        <label className="ml-4">What do you want to say?</label>
         <textarea
-          className="border-solid border-[#cd950c] border-2 p-2 w-80 min-h-4"
+          className="border-solid border-[#cd950c] border-2 p-2 w-7/12 min-h-4 ml-4 mr-4"
           name="post"
         ></textarea>
-        <button className="w-30 border-double border-[#cd950c] border-4 p-2 outline-4">
+        <button className="w-30 mr-4 border-double border-[#cd950c] border-4 p-2 outline-4 bg-[#002349]">
           Add New Post
         </button>
       </form>

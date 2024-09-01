@@ -1,12 +1,15 @@
 import { db } from "@/lib/db";
 
-await db.query(`CREATE TABLE IF NOT EXISTS profiles (
+await db.query(`
+    CREATE TABLE IF NOT EXISTS profiles (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     clerk_id TEXT UNIQUE,
     btn_image TEXT,
     username TEXT,
     firstName TEXT,
     lastName TEXT,
+	location TEXT,
+	AGE INT, 
     bio TEXT
 )
 

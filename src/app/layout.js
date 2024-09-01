@@ -20,20 +20,24 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={jacFran.className}>
-          <header className="fixed top-0 left-0 w-screen h-20 bg-[#002349] flex justify-evenly items-center">
+        <body
+          className={`{jacFran.className} bg-[#e8e5c3] text-[#cd950c] overflow-y-auto`}
+        >
+          <header className="fixed top-0 left-0 w-full h-20 bg-[#002349] flex justify-evenly items-center z-20">
             <h1 className="text-[#cd950c] text-5xl">Rip Cord</h1>
             <SignedOut>
-              <SignInButton className="border-double border-[#cd950c] border-8 outline-8 h-16 w-32 bg-[#002349] text-[#cd950c] text-2xl" />
+              <SignInButton className="border-double border-[#cd950c] border-8 outline-8 h-16 w-32 bg-[#002349] text-[#cd950c] text-center text-2xl" />
             </SignedOut>
             <SignedIn>
               <UserButton className="border-double border-[#cd950c] border-8 outline-8 h-20 w-32 bg-[#002349] text-[#cd950c] text-2xl" />
             </SignedIn>
           </header>
           <SignedOut>
-            <div>You&apos;re Not Worthy</div>
+            <div className="mt-32 mb-8 text-center text-4xl">
+              Welcome to Rip Cord Social Network
+            </div>
           </SignedOut>
-          <SignedIn>{children}</SignedIn>
+          {children}
         </body>
       </html>
     </ClerkProvider>

@@ -12,6 +12,8 @@
 
 🐿️ As a user, I am able to create posts on my profile timeline
 
+? added the new post component to the my profile page
+
 🐿️ As a user, I am able to see all posts by all users on a global timeline
 created a global time line page displaying all posts in date order ascending or decending using serch perams
 
@@ -31,18 +33,33 @@ created a global time line page displaying all posts in date order ascending or 
 
 🎯 Enable users to create posts associated with the userId, and display those posts on the user's profile page
 
+### Users can create new posts in the global post page and their user profile shows all the posts liked to the user who's profile you are viewing these can be sorted by date order assending or desending
+
 🎯 Show a 404 error if a user profile doesn't exist
 
+? created a 404 error page to display if a user does not have a profile
+
 🎯 Use at least 1 Radix UI Primitive or similar
+
+### imported a Calapsable primative from radix with its own icon component used it as an asside dropdown to list all user accounts. this was challanging as it took me time to work out how to create user buttuns in the drop down and display them in a client component I did this by passing props to the drop down.
 
 ## Stretch Goals
 
 🐿️ As a user, I am able to see a list of other user's posts and/or profiles on the site
+
+### The users profile page shows their profile and all of their posts
+
 🐿️ As a user, I am able able to visit other user profiles
+
+### user profiles can be selected from the aside dropdown in the My Profile page
+
 🐿️ As a user, I am able to follow other users
+
 🐿️ As a user, I am able to like posts I think are good, and see how many likes a post has
 
 🏹 Enable users to visit other user profiles after seeing their posts on a global timeline
+
+? every post has a link to the users profile page by clicking on their name
 
 🏹 Enable users to follow other users by creating a follower and follwee relationship between two user profiles
 

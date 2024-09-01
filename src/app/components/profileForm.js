@@ -11,10 +11,12 @@ export default async function ProfileForm() {
     const username = formData.get("username");
     const firstName = formData.get("firstName");
     const lastName = formData.get("lastName");
+    const age = formData.get("age");
+    const location = formData.get("location");
     const bio = formData.get("bio");
     await db.query(
-      `INSERT INTO profiles (clerk_id, btn_image, username, firstName, lastName, bio) VALUES ($1, $2, $3, $4, $5, $6)`,
-      [userId, btn_image, username, firstName, lastName, bio]
+      `INSERT INTO profiles (clerk_id, btn_image, username, firstName, lastName, age, location, bio) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+      [userId, btn_image, username, firstName, lastName, age, location, bio]
     );
     revalidatePath("/");
   }
@@ -48,6 +50,20 @@ export default async function ProfileForm() {
           type="text"
           name="lastName"
           placeholder="Add your last name here..."
+        ></input>
+        <label className="mt-4">Age</label>
+        <input
+          className="w-60 border-solid border-[#cd950c] border-2 p-2"
+          type="number"
+          name="age"
+          placeholder="18"
+        ></input>
+        <label className="mt-4">Location</label>
+        <input
+          className="w-60 border-solid border-[#cd950c] border-2 p-2"
+          type="text"
+          name="location"
+          placeholder="Somewhere..."
         ></input>
         <label className="mt-4">Tell us a little bit about yourself</label>
         <textarea

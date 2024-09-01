@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import NewComment from "@/app/components/newComment";
 import NavBar from "@/app/components/navbar";
+import Link from "next/link";
 export default async function AddComment({ params }) {
   const post = await fetchPost(params.id);
   const comments = await fetchComments(params.id);
@@ -39,24 +40,35 @@ export default async function AddComment({ params }) {
     return result.rows;
   }
   return (
-    <div className="mt-20">
+    <div className=" text-center w-11/12 flex flex-col items-center">
       <NavBar />
-      <div key={post.id}>
+      <div
+        key={post.id}
+        className="border-solid border-[#cd950c] border-2 p-2 flex items-center justify-between bg-[#002349] w-11/12"
+      >
         <h2>{post.username}</h2>
         <p>({new Date(post.timestamp).toLocaleString()})</p>
       </div>
-      <div>
-        <p>{post.post}</p>
+      <div className="w-11/12">
+        <p className="p-4 w-full">{post.post}</p>
       </div>
       {comments.map((comment) => {
         return (
-          <div key={comment.id}>
-            <div>
-              <h2>{comment.username}</h2>
+          <div
+            key={comment.id}
+            className=" text-center w-full flex flex-col items-center mt-4"
+          >
+            <div className="border-solid border-[#cd950c] border-2 p-2 flex items-center justify-between bg-[#002349] w-11/12">
+              <Link
+                href={`/${comment.clerk_id}`}
+                className="hover:text-fuchsia-500 hover:cursor:pointer"
+              >
+                <h2>{comment.username}</h2>
+              </Link>
               <p>({new Date(comment.timestamp).toLocaleString()})</p>
             </div>
-            <div>
-              <p>{comment.comment}</p>
+            <div className="w-11/12">
+              <p className="p-4 bg-[#f8f2bf] w-full">{comment.comment}</p>
             </div>
           </div>
         );
