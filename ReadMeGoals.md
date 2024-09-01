@@ -12,10 +12,11 @@
 
 🐿️ As a user, I am able to create posts on my profile timeline
 
-? added the new post component to the my profile page
+### I added the new post component to the my profile page
 
 🐿️ As a user, I am able to see all posts by all users on a global timeline
-created a global time line page displaying all posts in date order ascending or decending using serch perams
+
+### I created a global time line page displaying all posts in date order ascending or decending using serch perams
 
 ### created global post page
 
@@ -37,13 +38,13 @@ created a global time line page displaying all posts in date order ascending or 
 
 🎯 Show a 404 error if a user profile doesn't exist
 
-? created a 404 error page to display if a user does not have a profile
+### I created an error page to display if a user does not have a profile
 
 🎯 Use at least 1 Radix UI Primitive or similar
 
 ### imported a Calapsable primative from radix with its own icon component used it as an asside dropdown to list all user accounts. this was challanging as it took me time to work out how to create user buttuns in the drop down and display them in a client component I did this by passing props to the drop down.
 
-## Stretch Goals
+# Stretch Goals
 
 🐿️ As a user, I am able to see a list of other user's posts and/or profiles on the site
 
@@ -59,10 +60,12 @@ created a global time line page displaying all posts in date order ascending or 
 
 🏹 Enable users to visit other user profiles after seeing their posts on a global timeline
 
-? every post has a link to the users profile page by clicking on their name
+### every post has a link to the users profile page by clicking on their name
 
 🏹 Enable users to follow other users by creating a follower and follwee relationship between two user profiles
 
 🏹 Enable users to like other users' posts by creating a user_id and liked_post relationship in a junction table
 
 🏹 A user's biography cannot be blank. If a user logs in but doesn't have a biography set, they should be asked to fill one in
+
+### If their is no profile set up the user is promted to create one

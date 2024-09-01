@@ -3,6 +3,12 @@ import { db } from "@/lib/db";
 import ProfileForm from "./components/profileForm";
 import NavBar from "./components/navbar";
 import { SignedIn } from "@clerk/nextjs";
+import Image from "next/image";
+
+export const metadata = {
+  title: "landing page",
+  discription: "new users create a profile if they do not already have one",
+};
 
 export default async function ProfilePage() {
   const user = await currentUser();
@@ -31,7 +37,17 @@ export default async function ProfilePage() {
       <SignedIn>
         <NavBar />
       </SignedIn>
-      <h1> Welcome {profile.username} to your Rip Cord Profile Page</h1>
+      <h1 className="text-4xl p-4">Landing Page</h1>
+      <Image
+        src={profile.btn_image}
+        alt="Profile Avitar Image"
+        width="200"
+        height="200"
+        className="rounded-full"
+      ></Image>
+      <h1 className="mt-4">
+        Welcome {profile.username} to your Rip Cord Profile Page
+      </h1>
       <div>
         <p>First Name: {profile.firstname}</p>
       </div>

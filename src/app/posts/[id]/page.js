@@ -2,6 +2,12 @@ import { db } from "@/lib/db";
 import NewComment from "@/app/components/newComment";
 import NavBar from "@/app/components/navbar";
 import Link from "next/link";
+
+export const metadata = {
+  title: "comments ",
+  discription: "Read comments for a Post and leave a comment",
+};
+
 export default async function AddComment({ params }) {
   const post = await fetchPost(params.id);
   const comments = await fetchComments(params.id);

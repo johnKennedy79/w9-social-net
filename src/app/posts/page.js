@@ -5,7 +5,7 @@ import NavBar from "../components/navbar";
 
 export const metadata = {
   title: "Posts",
-  discription: "view all posts",
+  discription: "view all posts and add a new post",
 };
 
 export default async function Posts({ searchParams }) {

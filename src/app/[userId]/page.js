@@ -7,6 +7,12 @@ import { currentUser } from "@clerk/nextjs/server";
 import NewPost from "../components/newPost";
 import ProfileError from "../components/error";
 
+export const metadata = {
+  title: "My Profile page",
+  discription:
+    "view your Profile and your posts or select other users to view their profile",
+};
+
 export default async function MyPage({ params, searchParams }) {
   const sort = searchParams.sort === "desc" ? "DESC" : "ASC";
   const user = await currentUser();
@@ -18,7 +24,7 @@ export default async function MyPage({ params, searchParams }) {
     `
         SELECT * FROM profiles 
         WHERE profiles.clerk_id = $1`,
-    [user.id]
+    [params.userId]
   );
   if (profileRes.rowCount === 0) {
     return (
@@ -44,7 +50,7 @@ export default async function MyPage({ params, searchParams }) {
         WHERE rcposts.clerk_id = $1
         ORDER BY rcposts.timestamp ${sort}
         `,
-    [user.id]
+    [params.userId]
   );
   const posts = postsRes.rows;
 
